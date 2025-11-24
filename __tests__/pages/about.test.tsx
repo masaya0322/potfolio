@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import AboutPage from '../about'
+import AboutPage from '@/pages/about'
 
 describe('AboutPage', () => {
   it('should render page title', () => {

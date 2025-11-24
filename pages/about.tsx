@@ -1,4 +1,6 @@
 import { Layout } from '@/components/Layout'
+import { SectionHeader } from '@/components/SectionHeader'
+import { ContentCard } from '@/components/ContentCard'
 import { GraduationCap, Users, Briefcase, Heart } from 'lucide-react'
 
 const AboutPage = () => {
@@ -19,7 +21,7 @@ const AboutPage = () => {
       {/* プロフィールセクション */}
       <section className="px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          <div className="rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
+          <ContentCard>
             <h2 className="text-2xl font-bold text-gray-900">プロフィール</h2>
             <div className="mt-6 space-y-4">
               <div>
@@ -30,23 +32,20 @@ const AboutPage = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </ContentCard>
         </div>
       </section>
 
       {/* 大学・学歴セクション */}
       <section className="px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="rounded-full bg-blue-100 p-3">
-              <GraduationCap className="h-6 w-6 text-blue-600" />
-            </div>
-            <h2 className="text-2xl font-bold text-gray-900">大学・学歴</h2>
-          </div>
-          <div className="rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
+          <SectionHeader icon={GraduationCap} title="大学・学歴" />
+          <ContentCard>
             <div className="space-y-4">
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">○○大学 工学部 情報工学科</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  ○○大学 工学部 情報工学科
+                </h3>
                 <p className="mt-1 text-sm text-gray-500">2021年4月 - 2025年3月（予定）</p>
               </div>
               <div className="mt-4">
@@ -57,20 +56,20 @@ const AboutPage = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </ContentCard>
         </div>
       </section>
 
       {/* サークル活動セクション */}
       <section className="px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="rounded-full bg-green-100 p-3">
-              <Users className="h-6 w-6 text-green-600" />
-            </div>
-            <h2 className="text-2xl font-bold text-gray-900">サークル活動</h2>
-          </div>
-          <div className="rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
+          <SectionHeader
+            icon={Users}
+            title="サークル活動"
+            iconBgColor="bg-green-100"
+            iconColor="text-green-600"
+          />
+          <ContentCard>
             <div className="space-y-4">
               <div>
                 <h3 className="text-lg font-semibold text-gray-900">プログラミングサークル</h3>
@@ -84,21 +83,21 @@ const AboutPage = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </ContentCard>
         </div>
       </section>
 
       {/* インターンシップセクション */}
       <section className="px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="rounded-full bg-purple-100 p-3">
-              <Briefcase className="h-6 w-6 text-purple-600" />
-            </div>
-            <h2 className="text-2xl font-bold text-gray-900">インターンシップ</h2>
-          </div>
+          <SectionHeader
+            icon={Briefcase}
+            title="インターンシップ"
+            iconBgColor="bg-purple-100"
+            iconColor="text-purple-600"
+          />
           <div className="space-y-6">
-            <div className="rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
+            <ContentCard>
               <div className="space-y-4">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">株式会社○○</h3>
@@ -119,7 +118,7 @@ const AboutPage = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </ContentCard>
           </div>
         </div>
       </section>
@@ -127,13 +126,13 @@ const AboutPage = () => {
       {/* 趣味・興味セクション */}
       <section className="px-4 py-12 pb-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="rounded-full bg-pink-100 p-3">
-              <Heart className="h-6 w-6 text-pink-600" />
-            </div>
-            <h2 className="text-2xl font-bold text-gray-900">趣味・興味</h2>
-          </div>
-          <div className="rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
+          <SectionHeader
+            icon={Heart}
+            title="趣味・興味"
+            iconBgColor="bg-pink-100"
+            iconColor="text-pink-600"
+          />
+          <ContentCard>
             <div className="space-y-4">
               <div>
                 <h3 className="text-lg font-semibold text-gray-900">趣味</h3>
@@ -153,7 +152,7 @@ const AboutPage = () => {
                 </ul>
               </div>
             </div>
-          </div>
+          </ContentCard>
         </div>
       </section>
     </Layout>
