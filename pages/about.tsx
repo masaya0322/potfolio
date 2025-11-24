@@ -6,21 +6,15 @@ import { GraduationCap, Users, Briefcase, Heart } from 'lucide-react'
 const AboutPage = () => {
   return (
     <Layout>
-      {/* ヒーローセクション */}
       <section className="bg-gradient-to-b from-gray-50 to-white px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            About Me
-          </h1>
-          <p className="mt-6 text-lg text-gray-600">
-            私について、経歴、活動、趣味などを紹介します
-          </p>
+        <div className="mx-auto text-center">
+          <h1 className="text font-bold tracking-tight text-gray-900 sm:text-5xl">About Me</h1>
+          <p className="mt-6 text-lg text-gray-600">私について、経歴、活動、趣味などを紹介します</p>
         </div>
       </section>
 
-      {/* プロフィールセクション */}
       <section className="px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto">
           <ContentCard>
             <h2 className="text-2xl font-bold text-gray-900">プロフィール</h2>
             <div className="mt-6 space-y-4">
@@ -36,16 +30,13 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* 大学・学歴セクション */}
       <section className="px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto ">
           <SectionHeader icon={GraduationCap} title="大学・学歴" />
           <ContentCard>
             <div className="space-y-4">
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">
-                  ○○大学 工学部 情報工学科
-                </h3>
+                <h3 className="text-lg font-semibold text-gray-900">○○大学 工学部 情報工学科</h3>
                 <p className="mt-1 text-sm text-gray-500">2021年4月 - 2025年3月（予定）</p>
               </div>
               <div className="mt-4">
@@ -60,9 +51,8 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* サークル活動セクション */}
       <section className="px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto ">
           <SectionHeader
             icon={Users}
             title="サークル活動"
@@ -87,9 +77,8 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* インターンシップセクション */}
       <section className="px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto ">
           <SectionHeader
             icon={Briefcase}
             title="インターンシップ"
@@ -123,9 +112,8 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* 趣味・興味セクション */}
       <section className="px-4 py-12 pb-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto ">
           <SectionHeader
             icon={Heart}
             title="趣味・興味"
