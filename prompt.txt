@@ -1,0 +1,26 @@
+開発ガイドラインを作成させる時のプロンプト
+> 使用する技術は、next.js,tailwind css,shadcn/ui,lucide-react,date-fns,react-fook-form,zod,ESlint,prettierを使います。
+命名規則は、ケバブケースを用いる。pages 以外のファイル名は export するものの命名にあわせる。
+構成は、re-export を行わない。
+getServerSidePropsを作るときの規則は、変数名： Response は hogeRes  / Jsonデータは hogeData で統一。GET で response が 200 でないときは 404 
+ページを返す。Context 変数名は ctx 。ctx の型解決は直接行う。params から動的パラメータを受け取る際は as string を使う
+propsの型定義は、RPC等を活用した型推論を用いる。
+ページコンポーネントは、defalt export とページコンポーネントを別々にわける。
+コンポーネントについては、ページコンポーネントの記述量が増えたり複雑度が高くなる場合は、コンポーネントを適度に切り出す。
+余白の調整はページの責務なので、最上位の要素にマージンをつけない。コンポーネントは PascalCase で命名する。
+Propsの型はコンポーネントの前で宣言し、Propsを受け取る際は展開して受け取る。また、Propsの型は (コンポーネント名)Props で統一する。
+静的画像の使用は、assetsフォルダからimportしてください。Component の型として JSX.element を記述しない
+そのページに関する情報・機能を pages から切り出さない
+import のパスにはエイリアス @ を用いる
+関数は全てアロー関数で統一する
+default export はシステム上必要なもの (ページコンポーネント、getServerSidePropsなど) 以外行わない。
+DRY原則 / OAOO原則に従う 
+
+制作物についてのREADMEを作成する時のプロンプト
+> 次は、READMEを作ってもらう。READMEには今回の制作物についての記載をする。今回は自分の電子ポートフォリオサイトを作成する。
+トップページには、ABOUT,WORK,SKILL,CONTACTを軽く紹介し、メニュータブからそれぞれについての詳細ページに飛ぶ。
+ABOUTには、大学やサークル、インターンシップや趣味など、自分のことについての紹介をする。
+WORKには、自主制作したものや、インターンシップで作成しているものを紹介するページ
+SKILLには、開発経験のある言語や、使ったことのあるライブラリなど、自分のスキルについて紹介する。
+CONTACTには、Githubのアカウントや連絡用のフォームを表示する。 
+
