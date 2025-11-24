@@ -2,33 +2,32 @@ import { render, screen } from '@testing-library/react'
 import { Navigation } from '@/components/Navigation'
 
 describe('Navigation', () => {
-  it('should render logo link', () => {
+  it('should render as a nav element', () => {
+    render(<Navigation />)
+    expect(screen.getByRole('navigation')).toBeInTheDocument()
+  })
+
+  it('should render logo link to home', () => {
     render(<Navigation />)
 
     const logoLink = screen.getByRole('link', { name: /portfolio/i })
     expect(logoLink).toHaveAttribute('href', '/')
   })
 
-  it('should render all navigation links', () => {
+  it('should render all navigation links with correct hrefs', () => {
     render(<Navigation />)
 
-    expect(screen.getByRole('link', { name: /about/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /work/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /skill/i })).toBeInTheDocument()
-    expect(screen.getByRole('link', { name: /contact/i })).toBeInTheDocument()
-  })
+    const expectedLinks = [
+      { name: /about/i, href: '/about' },
+      { name: /work/i, href: '/work' },
+      { name: /skill/i, href: '/skill' },
+      { name: /contact/i, href: '/contact' },
+    ]
 
-  it('should render navigation links with correct hrefs', () => {
-    render(<Navigation />)
-
-    const aboutLink = screen.getByRole('link', { name: /about/i })
-    const workLink = screen.getByRole('link', { name: /work/i })
-    const skillLink = screen.getByRole('link', { name: /skill/i })
-    const contactLink = screen.getByRole('link', { name: /contact/i })
-
-    expect(aboutLink).toHaveAttribute('href', '/about')
-    expect(workLink).toHaveAttribute('href', '/work')
-    expect(skillLink).toHaveAttribute('href', '/skill')
-    expect(contactLink).toHaveAttribute('href', '/contact')
+    expectedLinks.forEach(({ name, href }) => {
+      const link = screen.getByRole('link', { name })
+      expect(link).toBeInTheDocument()
+      expect(link).toHaveAttribute('href', href)
+    })
   })
 })

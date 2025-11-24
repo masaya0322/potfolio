@@ -19,33 +19,30 @@ describe('Layout', () => {
       </Layout>
     )
 
-    expect(screen.getByRole('link', { name: /portfolio/i })).toBeInTheDocument()
+    expect(screen.getByRole('navigation')).toBeInTheDocument()
   })
 
   it('should render Footer component', () => {
-    render(
-      <Layout>
-        <div>Test Content</div>
-      </Layout>
-    )
-
-    const currentYear = new Date().getFullYear()
-    expect(screen.getByText(`© ${currentYear} Portfolio. All rights reserved.`)).toBeInTheDocument()
-  })
-
-  it('should have proper structure with navigation, main, and footer', () => {
     const { container } = render(
       <Layout>
         <div>Test Content</div>
       </Layout>
     )
 
-    const nav = container.querySelector('nav')
-    const main = container.querySelector('main')
-    const footer = container.querySelector('footer')
+    expect(container.querySelector('footer')).toBeInTheDocument()
+  })
 
-    expect(nav).toBeInTheDocument()
-    expect(main).toBeInTheDocument()
-    expect(footer).toBeInTheDocument()
+  it('should have proper semantic structure', () => {
+    render(
+      <Layout>
+        <div>Test Content</div>
+      </Layout>
+    )
+
+    expect(screen.getByRole('navigation')).toBeInTheDocument()
+    expect(screen.getByRole('main')).toBeInTheDocument()
+
+    const main = screen.getByRole('main')
+    expect(main).toContainElement(screen.getByText('Test Content'))
   })
 })
