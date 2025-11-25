@@ -40,10 +40,10 @@ describe('ContactPage', () => {
       expect(githubLink).toHaveAttribute('rel', 'noopener noreferrer')
     })
 
-    it('should render Twitter information', () => {
+    it('should render X (Twitter) information', () => {
       render(<ContactPage />)
 
-      expect(screen.getByRole('heading', { level: 3, name: /twitter/i })).toBeInTheDocument()
+      expect(screen.getByRole('heading', { level: 3, name: /x \(twitter\)/i })).toBeInTheDocument()
       expect(screen.getByText(/@your_twitter/i)).toBeInTheDocument()
     })
 
@@ -78,6 +78,16 @@ describe('ContactPage', () => {
       const formSection = formHeading.closest('section')
 
       expect(formSection).toBeInTheDocument()
+    })
+
+    it('should render ContactForm component with all fields', () => {
+      render(<ContactPage />)
+
+      expect(screen.getByLabelText(/名前/i)).toBeInTheDocument()
+      expect(screen.getByLabelText(/メールアドレス/i)).toBeInTheDocument()
+      expect(screen.getByLabelText(/件名/i)).toBeInTheDocument()
+      expect(screen.getByLabelText(/メッセージ/i)).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: /送信/i })).toBeInTheDocument()
     })
   })
 

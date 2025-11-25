@@ -1,7 +1,8 @@
 import { Layout } from '@/components/Layout'
 import { SectionHeader } from '@/components/SectionHeader'
 import { ContentCard } from '@/components/ContentCard'
-import { Github, Mail, Twitter } from 'lucide-react'
+import { ContactForm } from '@/components/ContactForm'
+import { Mail, Github as GithubIcon, X } from 'lucide-react'
 
 const ContactPage = () => {
   return (
@@ -20,7 +21,7 @@ const ContactPage = () => {
             <div className="space-y-6">
               <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100">
-                  <Github className="h-6 w-6 text-gray-700" />
+                  <GithubIcon className="h-6 w-6 text-gray-700" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900">GitHub</h3>
@@ -37,10 +38,10 @@ const ContactPage = () => {
 
               <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100">
-                  <Twitter className="h-6 w-6 text-gray-700" />
+                  <X className="h-6 w-6 text-gray-700" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">Twitter</h3>
+                  <h3 className="font-semibold text-gray-900">X (Twitter)</h3>
                   <p className="text-sm text-gray-600">@your_twitter</p>
                 </div>
               </div>
@@ -68,7 +69,7 @@ const ContactPage = () => {
             iconColor="text-green-600"
           />
           <ContentCard>
-            <p className="text-gray-600">お問い合わせフォームを実装予定</p>
+            <ContactForm />
           </ContentCard>
         </div>
       </section>
