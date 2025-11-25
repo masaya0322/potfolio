@@ -42,6 +42,15 @@ describe('SkillPage', () => {
 
       expect(languagesSection).toBeInTheDocument()
     })
+
+    it('should render skill cards with programming languages', () => {
+      render(<SkillPage />)
+
+      expect(screen.getByRole('heading', { level: 3, name: /typescript/i })).toBeInTheDocument()
+      expect(screen.getByRole('heading', { level: 3, name: /javascript/i })).toBeInTheDocument()
+      expect(screen.getByRole('heading', { level: 3, name: /python/i })).toBeInTheDocument()
+      expect(screen.getByRole('heading', { level: 3, name: /^java$/i })).toBeInTheDocument()
+    })
   })
 
   describe('Frameworks and Libraries Section', () => {
@@ -70,6 +79,15 @@ describe('SkillPage', () => {
 
       expect(frameworksSection).toBeInTheDocument()
     })
+
+    it('should render skill cards with frameworks and libraries', () => {
+      render(<SkillPage />)
+
+      expect(screen.getByRole('heading', { level: 3, name: /^react$/i })).toBeInTheDocument()
+      expect(screen.getByRole('heading', { level: 3, name: /next\.js/i })).toBeInTheDocument()
+      expect(screen.getByRole('heading', { level: 3, name: /tailwind css/i })).toBeInTheDocument()
+      expect(screen.getByRole('heading', { level: 3, name: /node\.js/i })).toBeInTheDocument()
+    })
   })
 
   describe('Tools and Technologies Section', () => {
@@ -91,6 +109,15 @@ describe('SkillPage', () => {
       const toolsSection = toolsHeading.closest('section')
 
       expect(toolsSection).toBeInTheDocument()
+    })
+
+    it('should render skill cards with tools and technologies', () => {
+      render(<SkillPage />)
+
+      expect(screen.getByRole('heading', { level: 3, name: /git \/ github/i })).toBeInTheDocument()
+      expect(screen.getByRole('heading', { level: 3, name: /docker/i })).toBeInTheDocument()
+      expect(screen.getByRole('heading', { level: 3, name: /vs code/i })).toBeInTheDocument()
+      expect(screen.getByRole('heading', { level: 3, name: /jest/i })).toBeInTheDocument()
     })
   })
 

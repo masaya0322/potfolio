@@ -1,9 +1,90 @@
 import { Layout } from '@/components/Layout'
 import { SectionHeader } from '@/components/SectionHeader'
-import { ContentCard } from '@/components/ContentCard'
+import { SkillCard } from '@/components/SkillCard'
 import { Code, Package, Wrench } from 'lucide-react'
 
 const SkillPage = () => {
+  const programmingLanguages = [
+    {
+      name: 'TypeScript',
+      category: 'Language',
+      description: '型安全なJavaScriptスーパーセット。フロントエンド・バックエンド開発で使用。',
+      level: 4,
+    },
+    {
+      name: 'JavaScript',
+      category: 'Language',
+      description: 'Web開発の基礎言語。ES6+の機能を活用した開発経験あり。',
+      level: 4,
+    },
+    {
+      name: 'Python',
+      category: 'Language',
+      description: 'データ分析やスクリプト作成に使用。基本的な開発経験あり。',
+      level: 3,
+    },
+    {
+      name: 'Java',
+      category: 'Language',
+      description: '大学の授業で学習。基本的なオブジェクト指向プログラミングを習得。',
+      level: 2,
+    },
+  ]
+
+  const frameworksAndLibraries = [
+    {
+      name: 'React',
+      category: 'Frontend',
+      description: 'コンポーネントベースのUI開発。フックやステート管理に習熟。',
+      level: 4,
+    },
+    {
+      name: 'Next.js',
+      category: 'Frontend',
+      description: 'SSR/SSGを活用したReactフレームワーク。本ポートフォリオでも使用。',
+      level: 4,
+    },
+    {
+      name: 'Tailwind CSS',
+      category: 'Frontend',
+      description: 'ユーティリティファーストのCSSフレームワーク。効率的なスタイリング。',
+      level: 4,
+    },
+    {
+      name: 'Node.js',
+      category: 'Backend',
+      description: 'サーバーサイドJavaScript実行環境。API開発経験あり。',
+      level: 3,
+    },
+  ]
+
+  const toolsAndTechnologies = [
+    {
+      name: 'Git / GitHub',
+      category: 'Tools',
+      description: 'バージョン管理とチーム開発。PR・Issue管理を日常的に使用。',
+      level: 4,
+    },
+    {
+      name: 'Docker',
+      category: 'Tools',
+      description: 'コンテナ化技術。開発環境の構築と管理に使用。',
+      level: 3,
+    },
+    {
+      name: 'VS Code',
+      category: 'Tools',
+      description: 'メインエディタ。拡張機能を活用した効率的な開発。',
+      level: 4,
+    },
+    {
+      name: 'Jest',
+      category: 'Testing',
+      description: 'JavaScriptテストフレームワーク。ユニットテストとインテグレーションテスト。',
+      level: 3,
+    },
+  ]
+
   return (
     <Layout>
       <section className="bg-gradient-to-b from-gray-50 to-white px-4 py-16 sm:px-6 lg:px-8">
@@ -16,9 +97,17 @@ const SkillPage = () => {
       <section className="px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto">
           <SectionHeader icon={Code} title="プログラミング言語" />
-          <ContentCard>
-            <p className="text-gray-600">プログラミング言語のスキルを表示します</p>
-          </ContentCard>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+            {programmingLanguages.map((skill) => (
+              <SkillCard
+                key={skill.name}
+                name={skill.name}
+                category={skill.category}
+                description={skill.description}
+                level={skill.level}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -30,9 +119,17 @@ const SkillPage = () => {
             iconBgColor="bg-green-100"
             iconColor="text-green-600"
           />
-          <ContentCard>
-            <p className="text-gray-600">フレームワーク・ライブラリのスキルを表示します</p>
-          </ContentCard>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+            {frameworksAndLibraries.map((skill) => (
+              <SkillCard
+                key={skill.name}
+                name={skill.name}
+                category={skill.category}
+                description={skill.description}
+                level={skill.level}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
@@ -44,9 +141,17 @@ const SkillPage = () => {
             iconBgColor="bg-purple-100"
             iconColor="text-purple-600"
           />
-          <ContentCard>
-            <p className="text-gray-600">開発ツールと技術スタックを表示します</p>
-          </ContentCard>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+            {toolsAndTechnologies.map((skill) => (
+              <SkillCard
+                key={skill.name}
+                name={skill.name}
+                category={skill.category}
+                description={skill.description}
+                level={skill.level}
+              />
+            ))}
+          </div>
         </div>
       </section>
     </Layout>
