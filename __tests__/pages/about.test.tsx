@@ -18,7 +18,6 @@ describe('AboutPage', () => {
   it('should have semantic structure', () => {
     render(<AboutPage />)
 
-    // mainタグとnavigationが存在することを確認
     expect(screen.getByRole('main')).toBeInTheDocument()
     expect(screen.getByRole('navigation')).toBeInTheDocument()
   })
@@ -50,7 +49,6 @@ describe('AboutPage', () => {
       const educationHeading = screen.getByRole('heading', { level: 2, name: /大学・学歴/i })
       expect(educationHeading).toBeInTheDocument()
 
-      // アイコン（SVG）が存在することを確認
       const section = educationHeading.closest('section')
       const icons = section?.querySelectorAll('svg')
       expect(icons!.length).toBeGreaterThan(0)
@@ -75,7 +73,6 @@ describe('AboutPage', () => {
       const clubHeading = screen.getByRole('heading', { level: 2, name: /サークル活動/i })
       expect(clubHeading).toBeInTheDocument()
 
-      // アイコン（SVG）が存在することを確認
       const section = clubHeading.closest('section')
       const icons = section?.querySelectorAll('svg')
       expect(icons!.length).toBeGreaterThan(0)
@@ -100,7 +97,6 @@ describe('AboutPage', () => {
       const internshipHeading = screen.getByRole('heading', { level: 2, name: /インターンシップ/i })
       expect(internshipHeading).toBeInTheDocument()
 
-      // アイコン（SVG）が存在することを確認
       const section = internshipHeading.closest('section')
       const icons = section?.querySelectorAll('svg')
       expect(icons!.length).toBeGreaterThan(0)
@@ -126,7 +122,6 @@ describe('AboutPage', () => {
       const hobbiesHeading = screen.getByRole('heading', { level: 2, name: /趣味・興味/i })
       expect(hobbiesHeading).toBeInTheDocument()
 
-      // アイコン（SVG）が存在することを確認
       const section = hobbiesHeading.closest('section')
       const icons = section?.querySelectorAll('svg')
       expect(icons!.length).toBeGreaterThan(0)
@@ -140,15 +135,18 @@ describe('AboutPage', () => {
 
       expect(hobbiesSection).toBeInTheDocument()
 
-      // 趣味セクション
-      const hobbySubHeading = within(hobbiesSection!).getByRole('heading', { level: 3, name: /^趣味$/i })
+      const hobbySubHeading = within(hobbiesSection!).getByRole('heading', {
+        level: 3,
+        name: /^趣味$/i,
+      })
       expect(hobbySubHeading).toBeInTheDocument()
 
-      // 興味のある分野セクション
-      const interestsSubHeading = within(hobbiesSection!).getByRole('heading', { level: 3, name: /興味のある分野/i })
+      const interestsSubHeading = within(hobbiesSection!).getByRole('heading', {
+        level: 3,
+        name: /興味のある分野/i,
+      })
       expect(interestsSubHeading).toBeInTheDocument()
 
-      // リストが存在することを確認
       const lists = within(hobbiesSection!).getAllByRole('list')
       expect(lists.length).toBe(2)
     })
@@ -175,8 +173,6 @@ describe('AboutPage', () => {
     it('should render icons for all sections with icons', () => {
       const { container } = render(<AboutPage />)
 
-      // 4つのセクションにアイコンがある（大学、サークル、インターン、趣味）
-      // プロフィールセクションにはアイコンがないため4つ
       const allSvgIcons = container.querySelectorAll('svg')
       expect(allSvgIcons.length).toBeGreaterThanOrEqual(4)
     })
