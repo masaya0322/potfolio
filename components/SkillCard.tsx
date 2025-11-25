@@ -10,7 +10,7 @@ interface SkillCardProps {
   icon?: ReactNode
 }
 
-const SkillCard = ({
+export const SkillCard = ({
   name,
   category,
   description,
@@ -22,7 +22,11 @@ const SkillCard = ({
     <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md">
       <div className="mb-4 flex items-start justify-between">
         <div className="flex items-center gap-3">
-          {icon && <div className="flex-shrink-0" data-testid="skill-icon">{icon}</div>}
+          {icon && (
+            <div className="flex-shrink-0" data-testid="skill-icon">
+              {icon}
+            </div>
+          )}
           <div>
             <h3 className="text-lg font-semibold text-gray-900">{name}</h3>
             {category && (
@@ -43,5 +47,4 @@ const SkillCard = ({
   )
 }
 
-export { SkillCard }
 export type { SkillCardProps }
