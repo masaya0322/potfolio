@@ -62,4 +62,68 @@ describe('SectionCard', () => {
 
     expect(screen.getByText('これまでの制作物やプロジェクトを紹介します')).toBeInTheDocument()
   })
+
+  it('should render with image when imageUrl is provided', () => {
+    const propsWithImage = {
+      ...defaultProps,
+      imageUrl: '/test-image.jpg',
+    }
+
+    render(<SectionCard {...propsWithImage} />)
+
+    const image = screen.getByRole('img', { name: defaultProps.title })
+    expect(image).toBeInTheDocument()
+    expect(image).toHaveAttribute('alt', defaultProps.title)
+
+    const link = screen.getByRole('link')
+    expect(link).toHaveAttribute('href', '/about')
+  })
+
+  it('should render with image on the left when imagePosition is left', () => {
+    const propsWithImageLeft = {
+      ...defaultProps,
+      imageUrl: '/test-image.jpg',
+      imagePosition: 'left' as const,
+    }
+
+    const { container } = render(<SectionCard {...propsWithImageLeft} />)
+
+    const image = screen.getByRole('img', { name: defaultProps.title })
+    expect(image).toBeInTheDocument()
+
+    const flexContainer = container.querySelector('.flex')
+    expect(flexContainer).toHaveClass('md:flex-row')
+  })
+
+  it('should render with image on the right when imagePosition is right', () => {
+    const propsWithImageRight = {
+      ...defaultProps,
+      imageUrl: '/test-image.jpg',
+      imagePosition: 'right' as const,
+    }
+
+    const { container } = render(<SectionCard {...propsWithImageRight} />)
+
+    const image = screen.getByRole('img', { name: defaultProps.title })
+    expect(image).toBeInTheDocument()
+
+    const flexContainer = container.querySelector('.flex')
+    expect(flexContainer).toHaveClass('md:flex-row-reverse')
+  })
+
+  it('should render all content elements when image is present', () => {
+    const propsWithImage = {
+      ...defaultProps,
+      imageUrl: '/test-image.jpg',
+    }
+
+    const { container } = render(<SectionCard {...propsWithImage} />)
+
+    expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument()
+    expect(screen.getByText(defaultProps.description)).toBeInTheDocument()
+    expect(screen.getByText('詳しく見る')).toBeInTheDocument()
+
+    const svgElements = container.querySelectorAll('svg')
+    expect(svgElements.length).toBeGreaterThanOrEqual(2)
+  })
 })
