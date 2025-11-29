@@ -7,7 +7,7 @@ const AboutPage = () => {
     <Layout>
       <section className="bg-gradient-to-b from-gray-50 to-white px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text font-bold tracking-tight text-gray-900 sm:text-5xl">About Me</h1>
+          <h1 className="text-5xl font-bold tracking-tight text-gray-900">About Me</h1>
           <p className="mt-6 text-lg text-gray-600">私について、経歴、活動、趣味などを紹介します</p>
         </div>
       </section>
