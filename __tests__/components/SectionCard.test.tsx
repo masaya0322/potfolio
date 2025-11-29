@@ -33,7 +33,6 @@ describe('SectionCard', () => {
   it('should render icon and arrow icon', () => {
     const { container } = render(<SectionCard {...defaultProps} />)
 
-    // SVGアイコンが2つ存在することを確認（メインアイコン + ArrowRight）
     const svgElements = container.querySelectorAll('svg')
     expect(svgElements).toHaveLength(2)
   })
