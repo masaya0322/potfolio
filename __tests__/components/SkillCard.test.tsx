@@ -103,6 +103,6 @@ describe('SkillCard', () => {
     )
 
     const card = container.firstChild as HTMLElement
-    expect(card).toHaveClass('rounded-lg', 'border', 'bg-white')
+    expect(card).toHaveClass('rounded-lg', 'border', 'bg-card')
   })
 })

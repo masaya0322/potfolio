@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 import { SkillLevel } from './SkillLevel'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
 
 interface SkillCardProps {
   name: string
@@ -19,8 +20,8 @@ export const SkillCard = ({
   icon,
 }: SkillCardProps) => {
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md">
-      <div className="mb-4 flex items-start justify-between">
+    <Card className="transition-all hover:shadow-md">
+      <CardHeader className="pb-4">
         <div className="flex items-center gap-3">
           {icon && (
             <div className="flex-shrink-0" data-testid="skill-icon">
@@ -36,14 +37,13 @@ export const SkillCard = ({
             )}
           </div>
         </div>
-      </div>
+      </CardHeader>
 
-      {description && <p className="mb-4 text-sm text-gray-600">{description}</p>}
-
-      <div className="mt-4">
+      <CardContent className="space-y-4">
+        {description && <p className="text-sm text-gray-600">{description}</p>}
         <SkillLevel level={level} maxLevel={maxLevel} />
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   )
 }
 
