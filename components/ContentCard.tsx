@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { Card, CardContent } from '@/components/ui/card'
 
 interface ContentCardProps {
   children: ReactNode
@@ -6,9 +7,11 @@ interface ContentCardProps {
 
 const ContentCard = ({ children }: ContentCardProps) => {
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
-      {children}
-    </div>
+    <Card>
+      <CardContent className="p-8">
+        {children}
+      </CardContent>
+    </Card>
   )
 }
 
