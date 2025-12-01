@@ -3,6 +3,7 @@ import { SectionHeader } from '@/components/SectionHeader'
 import { ContentCard } from '@/components/ContentCard'
 import { ContactForm } from '@/components/ContactForm'
 import { Mail, Github as GithubIcon, X } from 'lucide-react'
+import Link from 'next/link'
 
 const ContactPage = () => {
   return (
@@ -16,7 +17,7 @@ const ContactPage = () => {
 
       <section className="px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
-          <SectionHeader icon={Mail} title="連絡先" />
+          <SectionHeader icon={Mail} title="SNS" />
           <ContentCard>
             <div className="space-y-6">
               <div className="flex items-center gap-4">
@@ -25,14 +26,14 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900">GitHub</h3>
-                  <a
+                  <Link
                     href="https://github.com/masaya0322"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm text-blue-600 hover:underline"
                   >
                     @masaya0322
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -42,17 +43,14 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900">X (Twitter)</h3>
-                  <p className="text-sm text-gray-600">@your_twitter</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100">
-                  <Mail className="h-6 w-6 text-gray-700" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900">Email</h3>
-                  <p className="text-sm text-gray-600">your.email@example.com</p>
+                  <Link
+                    href="https://x.com/pm06engineer09?s=11&t=c0nC6knNs4STNVJRntKDSQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-blue-600 hover:underline"
+                  >
+                    @pm06engineer09
+                  </Link>
                 </div>
               </div>
             </div>

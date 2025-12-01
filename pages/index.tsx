@@ -2,6 +2,7 @@ import { Layout } from '@/components/Layout'
 import { SectionCard } from '@/components/SectionCard'
 import { User, Briefcase, Code, Mail } from 'lucide-react'
 import { LucideIcon } from 'lucide-react'
+import Image from 'next/image'
 
 type SectionType = {
   href: string
@@ -18,7 +19,7 @@ const HomePage = () => {
       icon: User,
       title: 'ABOUT',
       description: '私について、経歴、趣味などを紹介します',
-      imageUrl: '/assets/about_card_image.png',
+      imageUrl: '/assets/section_about.jpg',
       imagePosition: 'left',
     },
     {
@@ -26,7 +27,7 @@ const HomePage = () => {
       icon: Briefcase,
       title: 'WORK',
       description: 'これまでの制作物やプロジェクトを紹介します',
-      imageUrl: '/assets/10199.png',
+      imageUrl: '/assets/section_work.png',
       imagePosition: 'right',
     },
     {
@@ -34,6 +35,8 @@ const HomePage = () => {
       icon: Code,
       title: 'SKILL',
       description: '使用できる技術やスキルセットを紹介します',
+      imageUrl: '/assets/section_skill.jpg',
+      imagePosition: 'left',
     },
     {
       href: '/contact',
@@ -45,15 +48,28 @@ const HomePage = () => {
 
   return (
     <Layout>
+      <Image
+        src="/assets/portfolio_top_header.jpg"
+        alt="Profile Image"
+        width={1280}
+        height={720}
+        className="mx-auto w-full"
+      />
       <section className="px-8 py-20">
         <div className="mx-auto max-w-4xl text-center">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-            Welcome to My Portfolio
+            己を知り、己を伸ばす。
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-600">
-            Webエンジニアとして、フロントエンドを中心に開発しています。
+          <p className="mt-6 max-w-4xl text-lg text-left">
+            将来的に、革新的なアイデアでチームをリードするプロジェクトマネージャーになることを目指しています。
             <br />
-            制作物やスキルをご覧ください。
+            <br />
+            そのために、現場で最も適切な判断を下せるPMになるためには、技術への深い理解と困難な課題を解決できる実装力が必要不可欠だと考えました。そこで、2024年11月から現在にかけて、インターンシップでWebエンジニアとして、インターンシップフロントエンドを中心に開発しています。
+            <br />
+            <br />
+            そんな私について知っていただくために、このポートフォリオサイトを作成しました。
+            <br />
+            是非、私の経歴や制作物、スキルをご覧ください。
           </p>
         </div>
       </section>
