@@ -49,7 +49,7 @@ const HomePage = () => {
   return (
     <Layout>
       <Image
-        src="/assets/portfolio_top_header.jpg"
+        src="/assets/portfolio_header.jpg"
         alt="Profile Image"
         width={1280}
         height={720}
