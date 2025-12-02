@@ -31,6 +31,7 @@ Next.js と Tailwind CSS を使用したモダンなWebアプリケーション�
 - 自主制作物の紹介
 - インターンシップでの制作物
 - プロジェクトの詳細説明
+- **プロジェクト詳細ダイアログ**: カードをクリックすると詳細情報が表示されます
 
 ### SKILL ページ
 技術スキルを紹介するページ
@@ -43,17 +44,24 @@ Next.js と Tailwind CSS を使用したモダンなWebアプリケーション�
 連絡先情報を提供するページ
 
 - GitHub アカウント
-- 連絡用フォーム
+- **メール送信機能**: Resend APIを使用した実際のメール送信
+- フォームバリデーション（React Hook Form + Zod）
+- **セキュリティ対策**:
+  - XSS対策（入力値のサニタイズ）
+  - CSRF保護（カスタムヘッダー検証）
+  - レート制限（1分間に1回の送信制限）
 
 ## 技術スタック
 
 - **フレームワーク**: Next.js (Pages Router)
 - **スタイリング**: Tailwind CSS
-- **UI コンポーネント**: shadcn/ui
+- **UI コンポーネント**: shadcn/ui (Dialog, Button, Navigation Menu, Card)
 - **アイコン**: lucide-react
 - **日付処理**: date-fns
 - **フォーム管理**: react-hook-form
 - **バリデーション**: zod
+- **メール送信**: Resend API
+- **テスト**: Jest, React Testing Library
 - **コード品質**: ESLint, Prettier
 - **言語**: TypeScript
 
@@ -75,6 +83,29 @@ cd portfolio
 npm install
 ```
 
+### 環境変数の設定
+
+お問い合わせフォームのメール送信機能を使用する場合、環境変数の設定が必要です。
+
+1. `.env.local.example` を `.env.local` としてコピー:
+```bash
+cp .env.local.example .env.local
+```
+
+2. `.env.local` を編集して、以下の環境変数を設定:
+```bash
+# Resend API Key
+# Resendのダッシュボードから取得したAPIキーを設定してください
+# https://resend.com/api-keys
+RESEND_API_KEY=your_resend_api_key_here
+
+# Contact Email
+# お問い合わせを受信するメールアドレスを設定してください
+CONTACT_EMAIL=your-email@example.com
+```
+
+詳細なセットアップ手順については [SETUP_CONTACT_FORM.md](./SETUP_CONTACT_FORM.md) を参照してください。
+
 ### 開発サーバーの起動
 
 ```bash
@@ -95,21 +126,41 @@ npm run build
 npm run start
 ```
 
+### テスト
+
+```bash
+# すべてのテストを実行
+npm test
+
+# ウォッチモードでテストを実行
+npm run test:watch
+```
+
 ## ディレクトリ構造
 
 ```
 portfolio/
-├── assets/              # 静的画像（import用）
-├── components/          # 再利用可能なコンポーネント
+├── __tests__/          # テストファイル
+│   ├── components/     # コンポーネントのテスト
+│   └── pages/          # ページのテスト
+├── assets/             # 静的画像（import用）
+├── components/         # 再利用可能なコンポーネント
+│   └── ui/             # shadcn/uiコンポーネント
 ├── pages/              # Next.js ページ
+│   ├── api/            # APIルート
+│   │   └── contact.ts  # お問い合わせフォームAPI
 │   ├── index.tsx       # トップページ
 │   ├── about.tsx       # ABOUTページ
 │   ├── work.tsx        # WORKページ
 │   ├── skill.tsx       # SKILLページ
 │   └── contact.tsx     # CONTACTページ
+├── public/             # 静的ファイル
+│   └── assets/         # 画像ファイル
 ├── styles/             # スタイルシート
 ├── types/              # TypeScript型定義
-└── utils/              # ユーティリティ関数
+├── utils/              # ユーティリティ関数
+├── .env.local.example  # 環境変数のテンプレート
+└── SETUP_CONTACT_FORM.md  # お問い合わせフォーム設定ガイド
 ```
 
 ## 開発ガイドライン
