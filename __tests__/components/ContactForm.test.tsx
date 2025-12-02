@@ -140,6 +140,7 @@ describe('ContactForm', () => {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
+              'X-CSRF-Token': 'contact-form',
             },
             body: JSON.stringify({
               name: '山田太郎',

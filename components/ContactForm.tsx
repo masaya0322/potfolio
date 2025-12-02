@@ -22,6 +22,7 @@ type ContactFormData = z.infer<typeof contactFormSchema>
 const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
   const {
     register,
     handleSubmit,
@@ -39,6 +40,7 @@ const ContactForm = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'X-CSRF-Token': 'contact-form', // CSRF保護用のトークン
         },
         body: JSON.stringify(data),
       })
