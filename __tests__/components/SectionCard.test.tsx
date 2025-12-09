@@ -91,6 +91,7 @@ describe('SectionCard', () => {
     expect(image).toBeInTheDocument()
 
     const flexContainer = container.querySelector('.flex')
+    expect(flexContainer).toHaveClass('flex-col')
     expect(flexContainer).toHaveClass('md:flex-row')
   })
 
@@ -107,6 +108,7 @@ describe('SectionCard', () => {
     expect(image).toBeInTheDocument()
 
     const flexContainer = container.querySelector('.flex')
+    expect(flexContainer).toHaveClass('flex-col')
     expect(flexContainer).toHaveClass('md:flex-row-reverse')
   })
 
@@ -124,5 +126,33 @@ describe('SectionCard', () => {
 
     const svgElements = container.querySelectorAll('svg')
     expect(svgElements.length).toBeGreaterThanOrEqual(2)
+  })
+
+  it('should apply mobile-first layout with flex-col for images', () => {
+    const propsWithImage = {
+      ...defaultProps,
+      imageUrl: '/test-image.jpg',
+    }
+
+    const { container } = render(<SectionCard {...propsWithImage} />)
+
+    const flexContainer = container.querySelector('.flex')
+    expect(flexContainer).toHaveClass('flex-col')
+  })
+
+  it('should apply correct responsive classes for mobile and desktop', () => {
+    const propsWithImageRight = {
+      ...defaultProps,
+      imageUrl: '/test-image.jpg',
+      imagePosition: 'right' as const,
+    }
+
+    const { container } = render(<SectionCard {...propsWithImageRight} />)
+
+    const flexContainer = container.querySelector('.flex')
+    const classList = flexContainer?.className || ''
+
+    expect(classList).toContain('flex-col')
+    expect(classList).toContain('md:flex-row-reverse')
   })
 })
