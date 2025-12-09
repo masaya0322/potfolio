@@ -21,7 +21,7 @@ const SectionCard = ({
   imagePosition = 'right',
 }: SectionCardProps) => {
   const hasImage = !!imageUrl
-  const flexDirectionClass = imagePosition !== 'left' ? 'md:flex-row-reverse' : 'md:flex-row'
+  const flexDirectionClass = imagePosition !== 'left' ? 'flex-col md:flex-row-reverse' : 'flex-col md:flex-row'
 
   if (hasImage) {
     return (
